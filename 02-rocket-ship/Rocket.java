@@ -6,7 +6,7 @@ box();
 text();
 box();
 upsidedownv();
-} //ends Rocket method
+} //ends main method
   public static void upsidedownv() {
     System.out.println( "   /\\ ");
     System.out.println( "  /  \\ ");
@@ -22,4 +22,4 @@ upsidedownv();
     System.out.println("|United|");
     System.out.println("|States|");
   } //ends text method
-} //ends main class
+} //ends Rocket class
