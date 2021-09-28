@@ -14,7 +14,6 @@ upsidedownv();
     System.out.println("+------+ \n|      | \n|      | \n+------+");
   } //ends box method
   public static void text() {
-    System.out.println("|United|");
-    System.out.println("|States|");
+    System.out.println("|United| \n|States|");
   } //ends text method
 } //ends Rocket class
