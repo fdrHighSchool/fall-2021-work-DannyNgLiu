@@ -8,15 +8,10 @@ box();
 upsidedownv();
 } //ends main method
   public static void upsidedownv() {
-    System.out.println( "   /\\ ");
-    System.out.println( "  /  \\ ");
-    System.out.println( " /    \\ ");
+    System.out.println( "   /\\  \n  /  \\  \n /    \\");
   } //ends upsidedownv method
   public static void box() {
-    System.out.println("+------+");
-    System.out.println("|      |");
-    System.out.println("|      |");
-    System.out.println("+------+");
+    System.out.println("+------+ \n|      | \n|      | \n+------+");
   } //ends box method
   public static void text() {
     System.out.println("|United|");
