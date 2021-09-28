@@ -1,6 +1,5 @@
 public class Rocket {
   public static void main(String[] args) {
-//prints the rocketship with the five mthods below
 upsidedownv();
 box();
 text();
