@@ -18,6 +18,11 @@ float dash4q = 305;
 float dash4w = 355;
 float dash4e = 360;
 
+float dash5 = 410;
+float dash5q = 405;
+float dash5w = 455;
+float dash5e = 460;
+
 void setup() {
   size(400,400);
 }
@@ -31,7 +36,7 @@ void draw() {
   quad(dash2, 295, dash2q, 285, dash2w, 285, dash2e, 295);
   quad(dash3, 295, dash3q, 285, dash3w, 285, dash3e, 295);
   quad(dash4, 295, dash4q, 285, dash4w, 285, dash4e, 295);
-  
+  quad(dash5, 295, dash5q, 285, dash5w, 285, dash5e, 295);
 dash1 -= 4;
 dash1q -= 4;
 dash1w -= 4;
@@ -52,34 +57,43 @@ dash4q -= 4;
 dash4w -= 4;
 dash4e -= 4;
 
+dash5 -= 4;
+dash5q -= 4;
+dash5w -= 4;
+dash5e -= 4;
 
 if (dash1e < 0) {
-dash1 = 310;
-dash1q = 305;
-dash1w = 355;
-dash1e = 360;
+dash1 = 410;
+dash1q = 405;
+dash1w = 455;
+dash1e = 460;
   }
 
 if (dash2e < 0) {
-dash2 = 310;
-dash2q = 305;
-dash2w = 355;
-dash2e = 360;
+dash2 = 410;
+dash2q = 405;
+dash2w = 455;
+dash2e = 460;
   }
 
 if (dash3e < 0) {
-dash3 = 310;
-dash3q = 305;
-dash3w = 355;
-dash3e = 360;
+dash3 = 410;
+dash3q = 405;
+dash3w = 455;
+dash3e = 460;
   }
 
 if (dash4e < 0) {
-dash4 = 310;
-dash4q = 305;
-dash4w = 355;
-dash4e = 360;
+dash4 = 410;
+dash4q = 405;
+dash4w = 455;
+dash4e = 460;
   }
   
-  
+if (dash5e < 0) {
+dash5 = 410;
+dash5q = 405;
+dash5w = 455;
+dash5e = 460;
+  }  
 }
