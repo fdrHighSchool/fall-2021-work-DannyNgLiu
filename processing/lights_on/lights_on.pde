@@ -1,5 +1,10 @@
 float speedOfDash = 3;
 
+float minusOne = 500;
+
+float timer = 1;
+float timer2 = 1;
+
 float dash1 = 40;
 float dash1q = 35;
 float dash1w = 85;
@@ -25,12 +30,63 @@ float dash5q = 405;
 float dash5w = 455;
 float dash5e = 460;
 
+float a = 157;
+float b = 211;
+float c = 245;
+float d = 255;
+
 void setup() {
   size(400,400);
 }
 
 void draw() {
-  background(157,211,245,255);
+  
+
+minusOne -= 1;
+
+if (minusOne < 0) {
+  background(0);
+ timer = timer*1.001;
+ //System.out.println(minusOne);
+ System.out.println(timer);
+if(timer > 2) {
+  System.out.println(d);
+  if(d < 255) {
+  a = a*1.005;
+  b = b*1.005;
+  c = c*1.005;
+  d = d*1.005; 
+  //System.out.println("got here");
+  background(a,b,c,d);
+ } else {
+    a = 157;
+    b = 211;
+    c = 245;
+    d = 255;
+  background(a,b,c,d);
+  System.out.println(timer2);
+  timer2 = timer2*1.001;
+  if(timer2 > 2) {
+    timer = 1;
+    timer2 = 1;
+    minusOne = 500;
+    a = 157;
+    b = 211;
+    c = 245;
+    d = 255;
+  }
+ }
+
+}
+
+} else {
+  a = a*0.995;
+  b = b*0.995;
+  c = c*0.995;
+  d = d*0.995;
+  background(a,b,c,d);
+}
+
   fill(85,81,72,255);
   rect(0,260,400,60);
   fill(241,202,34);
@@ -39,6 +95,7 @@ void draw() {
   quad(dash3, 295, dash3q, 285, dash3w, 285, dash3e, 295);
   quad(dash4, 295, dash4q, 285, dash4w, 285, dash4e, 295);
   quad(dash5, 295, dash5q, 285, dash5w, 285, dash5e, 295);
+  
 dash1 -= speedOfDash;
 dash1q -= speedOfDash;
 dash1w -= speedOfDash;
