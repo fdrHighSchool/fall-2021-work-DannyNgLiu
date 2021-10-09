@@ -2,11 +2,13 @@ import java.util.concurrent.ThreadLocalRandom;
 float speedOfDash = 3;
 float speedOfTrees = 1;
 float speedOfStars = 0.2;
+float speedOfClouds = 0.4;
 float minusOne = 500;
 
 float timer = 1;
 float timer2 = 1;
 float timer3 = 1222;
+float timer4 = 1222;
 
 float dash1 = 40;
 float dash1q = 35;
@@ -53,6 +55,7 @@ float treeLog4 = 410;
 float tree4 = 390;
 
 float white = 1;
+float white2 = 255;
 
 float star1 = 123;
 float star2 = 321;
@@ -68,6 +71,25 @@ float star11 = 512;
 float star12 = 378;
 float star13 = 312;
 float star14 = 296;
+
+float cloud1 = 200;
+float cloud2 = 180;
+float cloud3 = 240;
+float cloud4 = 260;
+float cloud5 = 340;
+float cloud6 = 360;
+float cloud7 = 40;
+float cloud8 = 60;
+float cloud9 = 440;
+float cloud10 = 460;
+float cloud11 = 550;
+float cloud12 = 570;
+float cloud13 = 680;
+float cloud14 = 700;
+float cloud15 = 790;
+float cloud16 = 810;
+
+
 void setup() {
   size(400,400);
 }
@@ -77,7 +99,9 @@ void draw() {
 
 minusOne -= 1;
 timer3 -= 1;
+timer4 -= 1;
 
+System.out.println("the timer4 is: " + timer4);
 if (minusOne < 0) {
   background(0);
  timer = timer*1.001;
@@ -119,6 +143,26 @@ System.out.println("this is timer3 " +timer3);
 if (timer3 < 0) {
   white = 255;
   timer3 = 99999999;
+}
+
+if (timer4 < 0) {
+cloud1 = 200+150;
+cloud2 = 180+150;
+cloud3 = 240+150;
+cloud4 = 260+150;
+cloud5 = 340+150;
+cloud6 = 360+150;
+cloud7 = 40+150;
+cloud8 = 60+150;
+cloud9 = 440+150;
+cloud10 = 460+150;
+cloud11 = 550+150;
+cloud12 = 570+150;
+cloud13 = 680+150;
+cloud14 = 700+150;
+cloud15 = 790+150;
+cloud16 = 810+150;
+timer4 = 9999999;
 }
 
  //System.out.println(minusOne);
@@ -165,9 +209,49 @@ System.out.println("white: " + white);
  star13 -= speedOfStars;
  star14 -= speedOfStars;
  
+
  if (white < 40) {
  background(a,b,c,d);
  }
+ 
+  white2 = white2*1.005;
+fill(white2,white2,white2);
+arc(cloud1, 100, 40, 40, PI, TWO_PI);
+arc(cloud2, 100, 40, 40, PI, TWO_PI);
+arc(cloud3, 60, 40, 40, PI, TWO_PI);
+arc(cloud4, 60, 40, 40, PI, TWO_PI);
+arc(cloud5, 140, 40, 40, PI, TWO_PI);
+arc(cloud6, 140, 40, 40, PI, TWO_PI);
+arc(cloud7, 30, 40, 40, PI, TWO_PI);
+arc(cloud8, 30, 40, 40, PI, TWO_PI);
+arc(cloud9, 40, 40,40,PI,TWO_PI);
+arc(cloud10, 40, 40,40,PI,TWO_PI);
+arc(cloud11, 110, 40, 40, PI, TWO_PI);
+arc(cloud12, 110, 40, 40, PI, TWO_PI);
+arc(cloud13, 150, 40,40,PI,TWO_PI);
+arc(cloud14, 150, 40,40,PI,TWO_PI);
+arc(cloud15, 60, 40,40,PI,TWO_PI);
+arc(cloud16, 60, 40,40,PI,TWO_PI);
+
+cloud1 -= speedOfClouds;
+cloud2 -= speedOfClouds;
+cloud3 -= speedOfClouds;
+cloud4 -= speedOfClouds;
+cloud5 -= speedOfClouds;
+cloud6 -= speedOfClouds;
+cloud7 -= speedOfClouds;
+cloud8 -= speedOfClouds;
+cloud9 -= speedOfClouds;
+cloud10 -= speedOfClouds;
+cloud11 -= speedOfClouds;
+cloud12 -= speedOfClouds;
+cloud13 -= speedOfClouds;
+cloud14 -= speedOfClouds;
+cloud15 -= speedOfClouds;
+cloud16 -= speedOfClouds;
+
+System.out.println("white2 is: " + white2);
+ 
 
  } else {
     a = 157;
@@ -175,6 +259,47 @@ System.out.println("white: " + white);
     c = 245;
     d = 255;
   background(a,b,c,d);
+  
+white2 = white2*1.005;
+fill(white2,white2,white2);
+arc(cloud1, 100, 40, 40, PI, TWO_PI);
+arc(cloud2, 100, 40, 40, PI, TWO_PI);
+arc(cloud3, 60, 40, 40, PI, TWO_PI);
+arc(cloud4, 60, 40, 40, PI, TWO_PI);
+arc(cloud5, 140, 40, 40, PI, TWO_PI);
+arc(cloud6, 140, 40, 40, PI, TWO_PI);
+arc(cloud7, 30, 40, 40, PI, TWO_PI);
+arc(cloud8, 30, 40, 40, PI, TWO_PI);
+arc(cloud9, 40, 40,40,PI,TWO_PI);
+arc(cloud10, 40, 40,40,PI,TWO_PI);
+arc(cloud11, 110, 40, 40, PI, TWO_PI);
+arc(cloud12, 110, 40, 40, PI, TWO_PI);
+arc(cloud13, 150, 40,40,PI,TWO_PI);
+arc(cloud14, 150, 40,40,PI,TWO_PI);
+arc(cloud15, 60, 40,40,PI,TWO_PI);
+arc(cloud16, 60, 40,40,PI,TWO_PI);
+
+cloud1 -= speedOfClouds;
+cloud2 -= speedOfClouds;
+cloud3 -= speedOfClouds;
+cloud4 -= speedOfClouds;
+cloud5 -= speedOfClouds;
+cloud6 -= speedOfClouds;
+cloud7 -= speedOfClouds;
+cloud8 -= speedOfClouds;
+cloud9 -= speedOfClouds;
+cloud10 -= speedOfClouds;
+cloud11 -= speedOfClouds;
+cloud12 -= speedOfClouds;
+cloud13 -= speedOfClouds;
+cloud14 -= speedOfClouds;
+cloud15 -= speedOfClouds;
+cloud16 -= speedOfClouds;
+
+System.out.println("white2 is: " + white2);
+  
+  
+  
   System.out.println(timer2);
   timer2 = timer2*1.001;
   if(timer2 > 2) {
@@ -201,17 +326,60 @@ System.out.println("white: " + white);
     star13 = 312;
     star14 = 296;
     timer3 = 1222;
+    timer4 = 1222;
+    white2 = 255;
   }
  }
 
 }
 
 } else {
+  
   a = a*0.995;
   b = b*0.995;
   c = c*0.995;
   d = d*0.995;
   background(a,b,c,d);
+  
+white2 = white2*0.9949;
+fill(white2,white2,white2);
+arc(cloud1, 100, 40, 40, PI, TWO_PI);
+arc(cloud2, 100, 40, 40, PI, TWO_PI);
+arc(cloud3, 60, 40, 40, PI, TWO_PI);
+arc(cloud4, 60, 40, 40, PI, TWO_PI);
+arc(cloud5, 140, 40, 40, PI, TWO_PI);
+arc(cloud6, 140, 40, 40, PI, TWO_PI);
+arc(cloud7, 30, 40, 40, PI, TWO_PI);
+arc(cloud8, 30, 40, 40, PI, TWO_PI);
+arc(cloud9, 40, 40,40,PI,TWO_PI);
+arc(cloud10, 40, 40,40,PI,TWO_PI);
+arc(cloud11, 110, 40, 40, PI, TWO_PI);
+arc(cloud12, 110, 40, 40, PI, TWO_PI);
+arc(cloud13, 150, 40,40,PI,TWO_PI);
+arc(cloud14, 150, 40,40,PI,TWO_PI);
+arc(cloud15, 60, 40,40,PI,TWO_PI);
+arc(cloud16, 60, 40,40,PI,TWO_PI);
+
+cloud1 -= speedOfClouds;
+cloud2 -= speedOfClouds;
+cloud3 -= speedOfClouds;
+cloud4 -= speedOfClouds;
+cloud5 -= speedOfClouds;
+cloud6 -= speedOfClouds;
+cloud7 -= speedOfClouds;
+cloud8 -= speedOfClouds;
+cloud9 -= speedOfClouds;
+cloud10 -= speedOfClouds;
+cloud11 -= speedOfClouds;
+cloud12 -= speedOfClouds;
+cloud13 -= speedOfClouds;
+cloud14 -= speedOfClouds;
+cloud15 -= speedOfClouds;
+cloud16 -= speedOfClouds;
+
+System.out.println("white2 is: " + white2);
+  
+  
 }
   //grass
   fill(96,128,63,255);
@@ -356,6 +524,7 @@ fill(136,155,58,255);
 rect(tree4, 150, 60, 60);
 
 car1();
+
 }
 
 
