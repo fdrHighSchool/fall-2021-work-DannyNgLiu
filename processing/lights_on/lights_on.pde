@@ -193,6 +193,13 @@ System.out.println("white: " + white);
     star5 = 21;
     star6 = 167;
     star7 = 297;
+    star8 = 430;
+    star9 = 452;
+    star10 = 470;
+    star11 = 512;
+    star12 = 378;
+    star13 = 312;
+    star14 = 296;
     timer3 = 1222;
   }
  }
