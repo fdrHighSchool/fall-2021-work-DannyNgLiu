@@ -8,7 +8,7 @@ float minusOne = 500;
 float timer = 1;
 float timer2 = 1;
 float timer3 = 1222;
-float timer4 = 1222;
+//float timer4 = 1222;
 
 float dash1 = 40;
 float dash1q = 35;
@@ -86,8 +86,8 @@ float cloud11 = 550;
 float cloud12 = 570;
 float cloud13 = 680;
 float cloud14 = 700;
-float cloud15 = 790;
-float cloud16 = 810;
+float cloud15 = 750;
+float cloud16 = 770;
 
 
 void setup() {
@@ -99,9 +99,9 @@ void draw() {
 
 minusOne -= 1;
 timer3 -= 1;
-timer4 -= 1;
+//timer4 -= 1;
 
-System.out.println("the timer4 is: " + timer4);
+//System.out.println("the timer4 is: " + timer4);
 if (minusOne < 0) {
   background(0);
  timer = timer*1.001;
@@ -145,25 +145,60 @@ if (timer3 < 0) {
   timer3 = 99999999;
 }
 
-if (timer4 < 0) {
-cloud1 = 200+150;
-cloud2 = 180+150;
-cloud3 = 240+150;
-cloud4 = 260+150;
-cloud5 = 340+150;
-cloud6 = 360+150;
-cloud7 = 40+150;
-cloud8 = 60+150;
-cloud9 = 440+150;
-cloud10 = 460+150;
-cloud11 = 550+150;
-cloud12 = 570+150;
-cloud13 = 680+150;
-cloud14 = 700+150;
-cloud15 = 790+150;
-cloud16 = 810+150;
-timer4 = 9999999;
+//if (timer4 < 0) {
+//cloud1 = 200+150;
+//cloud2 = 180+150;
+//cloud3 = 240+150;
+//cloud4 = 260+150;
+//cloud5 = 340+150;
+//cloud6 = 360+150;
+//cloud7 = 40+150;
+//cloud8 = 60+150;
+//cloud9 = 440+150;
+//cloud10 = 460+150;
+//cloud11 = 550+150;
+//cloud12 = 570+150;
+//cloud13 = 680+150;
+//cloud14 = 700+150;
+//cloud15 = 790+150;
+//cloud16 = 810+150;
+//timer4 = 9999999;
+//}
+
+if(cloud8 < -10) {
+  cloud8 = 820;
+  cloud7 = 800;
 }
+if(cloud1 < -10) {
+  cloud1 = 870;
+  cloud2 = 850;
+}
+if(cloud4 < -10) {
+  cloud4 = 920;
+  cloud3 = 900;
+}
+if(cloud6 < -10) {
+  cloud6 = 970;
+  cloud5 = 950;
+}
+if(cloud10 < -10) {
+  cloud10 = 1020;
+  cloud9 = 1000;
+}
+if(cloud12 < -10) {
+  cloud12 = 1070;
+  cloud11 = 1050;
+}
+if(cloud14 < -10) {
+  cloud14 = 1120;
+  cloud13 = 1100;
+}
+if(cloud16 < -10) {
+  cloud16 = 1170;
+  cloud15 = 1150;
+}
+
+
 
  //System.out.println(minusOne);
  System.out.println(timer);
@@ -326,7 +361,7 @@ System.out.println("white2 is: " + white2);
     star13 = 312;
     star14 = 296;
     timer3 = 1222;
-    timer4 = 1222;
+    //timer4 = 1222;
     white2 = 255;
   }
  }
