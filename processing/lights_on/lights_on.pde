@@ -1,15 +1,21 @@
 import java.util.concurrent.ThreadLocalRandom;
+//these variables controls the speed of the dashes, trees, stars and clouds
 float speedOfDash = 3;
 float speedOfTrees = 1;
 float speedOfStars = 0.2;
 float speedOfClouds = 0.4;
+
+//first timer which is executed at the beginning which turns the background black.
 float minusOne = 500;
 
+//these timers are used to activate conditions inside the large if-statement
+//which helps change the background graduately to black and back to the sky blue color
 float timer = 1;
 float timer2 = 1;
 float timer3 = 1222;
 //float timer4 = 1222;
 
+//x-axis values of the dashes on the road
 float dash1 = 40;
 float dash1q = 35;
 float dash1w = 85;
@@ -35,11 +41,13 @@ float dash5q = 405;
 float dash5w = 455;
 float dash5e = 460;
 
+//the values for the background background(a,b,c,d)
 float a = 157;
 float b = 211;
 float c = 245;
 float d = 255;
 
+//x-axis values of the trees
 float treeLog1 = 300;
 float tree1q = 290;
 float tree1w = 310;
@@ -54,9 +62,11 @@ float tree3 = 210;
 float treeLog4 = 410;
 float tree4 = 390;
 
+//these variables contain the color, mainly used to graduately get darker or lighter.
 float white = 1;
 float white2 = 255;
 
+//x-axis values for the stars
 float star1 = 123;
 float star2 = 321;
 float star3 = 232;
@@ -72,6 +82,7 @@ float star12 = 378;
 float star13 = 312;
 float star14 = 296;
 
+//x-axis of the clouds
 float cloud1 = 200;
 float cloud2 = 180;
 float cloud3 = 240;
@@ -89,19 +100,22 @@ float cloud14 = 700;
 float cloud15 = 750;
 float cloud16 = 770;
 
-
+//size of the screen is 400 by 400
 void setup() {
   size(400,400);
 }
 
 void draw() {
   
-
+//the timers are being changed everytime by -1
 minusOne -= 1;
 timer3 -= 1;
 //timer4 -= 1;
 
 //System.out.println("the timer4 is: " + timer4);
+
+//once minusOne is less than 0, it will execute this if-statement
+//changing the background to black, brightening the stars and starting a timer
 if (minusOne < 0) {
   background(0);
  timer = timer*1.001;
@@ -139,7 +153,10 @@ white = white*1.05;
  star14 -= speedOfStars;
  
 System.out.println("this is timer3 " +timer3);
-
+//timer3 is set to 1222 and has been updated by -1, once it is less than 0, it will
+//set white to 255 because without it, white is going to be some large number that
+//will take a very long time to change the color black close to 0
+//it also sets timer3 to a very large number so it isn't executed again
 if (timer3 < 0) {
   white = 255;
   timer3 = 99999999;
@@ -165,6 +182,8 @@ if (timer3 < 0) {
 //timer4 = 9999999;
 //}
 
+//if the clouds are off the screen, it will set the x-axis of the variables to the right
+//side of the display
 if(cloud8 < -10) {
   cloud8 = 820;
   cloud7 = 800;
@@ -202,6 +221,12 @@ if(cloud16 < -10) {
 
  //System.out.println(minusOne);
  System.out.println(timer);
+ 
+//once the timer is greater than 2, the background starts to graduately increase back
+//to the original color
+//it also decreases the visiblity of the stars changing it's color until it is
+//below a certain number where it is just overlapped by the background
+//the clouds are also graduately visible
 if(timer > 2) {
   System.out.println(d);
   if(d < 255) {
@@ -334,7 +359,7 @@ cloud16 -= speedOfClouds;
 System.out.println("white2 is: " + white2);
   
   
-  
+ //sets the variables back to the original state so that the program can loop again
   System.out.println(timer2);
   timer2 = timer2*1.001;
   if(timer2 > 2) {
@@ -369,13 +394,14 @@ System.out.println("white2 is: " + white2);
 }
 
 } else {
-  
+//this is the first thing that is ran since minusOne > 0
+//this will darken the background
   a = a*0.995;
   b = b*0.995;
   c = c*0.995;
   d = d*0.995;
   background(a,b,c,d);
-  
+//darkens the clouds and makes it blend in with the black background
 white2 = white2*0.9949;
 fill(white2,white2,white2);
 arc(cloud1, 100, 40, 40, PI, TWO_PI);
@@ -395,6 +421,7 @@ arc(cloud14, 150, 40,40,PI,TWO_PI);
 arc(cloud15, 60, 40,40,PI,TWO_PI);
 arc(cloud16, 60, 40,40,PI,TWO_PI);
 
+//changes the x-axis simulating movement to the left
 cloud1 -= speedOfClouds;
 cloud2 -= speedOfClouds;
 cloud3 -= speedOfClouds;
