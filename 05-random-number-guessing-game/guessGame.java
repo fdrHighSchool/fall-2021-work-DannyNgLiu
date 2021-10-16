@@ -44,7 +44,7 @@ public class guessGame {
         if(theirGuess > ranNum) {
           lives -= 1;
           if(lives == 0) {
-            System.out.println("You ran out of lives, if you want to play again, type yes, otherwise no.");
+              System.out.println("You ran out of lives, the number was " + ranNum + "\n If you want to play again, type yes, otherwise no.");
             Scanner again = new Scanner(System.in);
             String yesno = again.nextLine();
             if((yesno.equals("yes"))) {
@@ -59,7 +59,7 @@ public class guessGame {
           if(theirGuess < ranNum) {
             lives -= 1;
             if(lives == 0) {
-              System.out.println("You ran out of lives, if you want to play again, type yes, otherwise no.");
+              System.out.println("You ran out of lives, the number was " + ranNum + "\n If you want to play again, type yes, otherwise no.");
               Scanner again = new Scanner(System.in);
               String yesno = again.nextLine();
               if((yesno.equals("yes"))) {
