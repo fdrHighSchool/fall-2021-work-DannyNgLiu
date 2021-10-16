@@ -15,8 +15,6 @@ public class guessGame {
         System.out.println("Choose your difficulty (Easy, Medium, Hard)");
         difficulty = ask.nextLine();
         System.out.println("difficulty " + difficulty + " has been chosen.");
-
-        System.out.println(ranNum);
         loop = 1;
       }
       if(difficulty.equals("Easy") || difficulty.equals("easy")) {
@@ -25,6 +23,21 @@ public class guessGame {
           System.out.println("Your goal is to guess a number between 1-20 with 8 lives.");
           placeHolder = 1;
         }
+      }
+      if(difficulty.equals("Medium") || difficulty.equals("medium")) {
+        if(placeHolder == 0) {
+          lives = 5;
+          System.out.println("Your goal is to guess a number between 1-20 with 5 lives.");
+          placeHolder = 1;
+        }
+      }
+      if(difficulty.equals("Hard") || difficulty.equals("hard")) {
+        if(placeHolder == 0) {
+          lives = 2;
+          System.out.println("Your goal is to guess a number between 1-20 with 2 lives.");
+          placeHolder = 1;
+        }
+      }
         System.out.println("You may guess a number now: ");
         Scanner number = new Scanner(System.in);
         int theirGuess = number.nextInt();
@@ -80,37 +93,3 @@ public class guessGame {
       }
     }
   }
-}
-
-
-
-
-
-        // System.out.println("You may guess a number now.");
-        // Scanner number = new Scanner(System.in);
-        // int theirGuess = number.nextInt();
-      //   if(theirGuess > ranNum) {
-      //     System.out.println("Guess Lower");
-      //     lives -= 1;
-      //   }
-      //   if(theirGuess < ranNum) {
-      //     System.out.println("guess higher");
-      //     lives -= 1;
-      //   }
-      //   if(theirGuess == ranNum) {
-      //     System.out.println("Congratulations, you guessed the number!");
-      //   }
-      // }
-    // if(difficulty == "Medium" || difficulty == "medium") {
-    //   if(placeHolder == 0) {
-    //   System.out.println("You get 5 lives");
-    //   lives = 5;
-    //   placeHolder = 1;
-    //     }
-    //   }
-    // if(difficulty == "Hard" || difficulty == "Hard") {
-    //   if(placeHolder == 0) {
-    //   System.out.println("You get 2 lives");
-    //   lives = 2;
-    //   placeHolder = 1;
-    //     }
