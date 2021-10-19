@@ -6,13 +6,14 @@ public class guessGame {
     int loop = 0;
     int ranNum = 0;
     String difficulty = "";
-    String grammer = "";
+    String grammar = "";
     // String yesno = "";
     while(lives > 0) {
+      //loops the game if the user wants to play again.
       if(loop == 0) {
-        ranNum = (int)(Math.random()*20+1);
+        ranNum = (int)(Math.random()*20+1); //gets the random number
         Scanner ask = new Scanner(System.in);
-        System.out.println("Choose your difficulty (Easy, Medium, Hard)");
+        System.out.println("Choose your difficulty: type Easy, Medium, or Hard"); //chooses the mode, later on compared with .equals
         difficulty = ask.nextLine();
         System.out.println("difficulty " + difficulty + " has been chosen.");
         loop = 1;
@@ -20,21 +21,21 @@ public class guessGame {
       if(difficulty.equals("Easy") || difficulty.equals("easy")) {
         if(placeHolder == 0) {
           lives = 8;
-          System.out.println("Your goal is to guess a number between 1-20 with 8 lives.");
+          System.out.println("Your goal is to guess a number between 1-20 with 8 lives. Hints will be given.");
           placeHolder = 1;
         }
       }
       if(difficulty.equals("Medium") || difficulty.equals("medium")) {
         if(placeHolder == 0) {
           lives = 5;
-          System.out.println("Your goal is to guess a number between 1-20 with 5 lives.");
+          System.out.println("Your goal is to guess a number between 1-20 with 5 lives. Hints will be given.");
           placeHolder = 1;
         }
       }
       if(difficulty.equals("Hard") || difficulty.equals("hard")) {
         if(placeHolder == 0) {
           lives = 2;
-          System.out.println("Your goal is to guess a number between 1-20 with 2 lives.");
+          System.out.println("Your goal is to guess a number between 1-20 with 2 lives. Hints will be given.");
           placeHolder = 1;
         }
       }
@@ -48,7 +49,7 @@ public class guessGame {
             Scanner again = new Scanner(System.in);
             String yesno = again.nextLine();
             if((yesno.equals("yes"))) {
-              lives = 1;
+              lives = 1; //it is important to assign these variables to a certain integer so the program is able to run in a loop until the user stops it
               loop = 0;
               placeHolder = 0;
             }
@@ -73,11 +74,11 @@ public class guessGame {
           }
             if(theirGuess == ranNum) {
               if(lives == 1) {
-                grammer = "life";
+                grammar = "life"; //gammar variable is set to life or lives depending on the number of lives, this is put into place for correct grammar notation
               } else {
-                grammer = "lives";
+                grammar = "lives";
                 }
-                System.out.println("Congratulations, you guessed the number with " + lives + " " + grammer + " remaining!");
+                System.out.println("Congratulations, you guessed the number with " + lives + " " + grammar + " remaining!");
                 lives = 0;
                 if (lives == 0) {
                 System.out.println("If you want to play again, type yes, otherwise no.");
