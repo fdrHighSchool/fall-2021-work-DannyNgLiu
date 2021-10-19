@@ -7,6 +7,7 @@ public class guessGame {
     int ranNum = 0;
     String difficulty = "";
     String grammar = "";
+    String[] kws = {"easy", "Easy", "medium", "Medium", "hard", "Hard"};
     // String yesno = "";
     while(lives > 0) {
       //loops the game if the user wants to play again.
@@ -17,6 +18,13 @@ public class guessGame {
         difficulty = ask.nextLine();
         System.out.println("difficulty " + difficulty + " has been chosen.");
         loop = 1;
+        System.out.println(difficulty.contentEquals("easy"));
+        System.out.println(kws.length);
+        // for(int i = 0; i<keywords.length; i++) {
+        //   if(difficulty.contentEquals(kws[i]) {
+        //     System.out.println("found");
+        //   }
+        // }
       }
       if(difficulty.equals("Easy") || difficulty.equals("easy")) {
         if(placeHolder == 0) {
@@ -44,6 +52,11 @@ public class guessGame {
         int theirGuess = number.nextInt();
         if(theirGuess > ranNum) {
           lives -= 1;
+          if(lives == 1) {
+            grammar = "life";
+          } else {
+            grammar = "lives";
+            }
           if(lives == 0) {
               System.out.println("You ran out of lives, the number was " + ranNum + "\n If you want to play again, type yes, otherwise no.");
             Scanner again = new Scanner(System.in);
@@ -54,11 +67,16 @@ public class guessGame {
               placeHolder = 0;
             }
           } else {
-          System.out.println("You have " + lives + " lives left, guess lower.");
+          System.out.println("You have " + lives + " " + grammar + " left, guess lower.");
           }
         }
           if(theirGuess < ranNum) {
             lives -= 1;
+            if(lives == 1) {
+              grammar = "life";
+            } else {
+              grammar = "lives";
+              }
             if(lives == 0) {
               System.out.println("You ran out of lives, the number was " + ranNum + "\n If you want to play again, type yes, otherwise no.");
               Scanner again = new Scanner(System.in);
@@ -69,7 +87,7 @@ public class guessGame {
                 placeHolder = 0;
               }
             } else {
-            System.out.println("You have " + lives + " lives left, guess higher.");
+            System.out.println("You have " + lives + " " + grammar + " left, guess higher.");
             }
           }
             if(theirGuess == ranNum) {
