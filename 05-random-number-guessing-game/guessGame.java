@@ -20,13 +20,10 @@ public class guessGame {
         difficulty = ask.nextLine();
 
         System.out.println("difficulty " + difficulty + " has been chosen.");
-        System.out.println(difficulty);
 
         for(int i = 0; i<kws.length; i++) {
           if(difficulty.contentEquals(kws[i])) {
             loop2 = 1;
-            System.out.println("");
-            System.out.println(loop2);
           }
         }
       while(loop2 == 0) {
