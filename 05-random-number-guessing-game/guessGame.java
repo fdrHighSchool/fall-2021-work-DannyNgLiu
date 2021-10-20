@@ -4,8 +4,10 @@ public class guessGame {
     int placeHolder = 0;
     int lives = 1;
     int loop = 0;
+    int loop2 = 0;
     int ranNum = 0;
     String difficulty = "";
+    String difficulty2 = "";
     String grammar = "";
     String[] kws = {"easy", "Easy", "medium", "Medium", "hard", "Hard"};
     // String yesno = "";
@@ -14,17 +16,35 @@ public class guessGame {
       if(loop == 0) {
         ranNum = (int)(Math.random()*20+1); //gets the random number
         Scanner ask = new Scanner(System.in);
-        System.out.println("Choose your difficulty: type Easy, Medium, or Hard"); //chooses the mode, later on compared with .equals
+        System.out.println("Choose your difficulty: type Easy, Medium, or Hard."); //chooses the mode, later on compared with .equals
         difficulty = ask.nextLine();
+
+        System.out.println("difficulty " + difficulty + " has been chosen.");
+        System.out.println(difficulty);
+
+        for(int i = 0; i<kws.length; i++) {
+          if(difficulty.contentEquals(kws[i])) {
+            loop2 = 1;
+            System.out.println("");
+            System.out.println(loop2);
+          }
+        }
+      while(loop2 == 0) {
+          System.out.println("not a difficulty, try again");
+          Scanner askAgain = new Scanner(System.in);
+          difficulty2 = askAgain.nextLine();
+          for(int i = 0; i<kws.length; i++) {
+            if(difficulty2.contentEquals(kws[i])) {
+              loop2 = 1;
+              difficulty = difficulty2;
+        }
+      }
+    }
+
         System.out.println("difficulty " + difficulty + " has been chosen.");
         loop = 1;
-        System.out.println(difficulty.contentEquals("easy"));
-        System.out.println(kws.length);
-        // for(int i = 0; i<keywords.length; i++) {
-        //   if(difficulty.contentEquals(kws[i]) {
-        //     System.out.println("found");
-        //   }
-        // }
+        // System.out.println(difficulty.contentEquals("easy"));
+        // System.out.println(kws.length);
       }
       if(difficulty.equals("Easy") || difficulty.equals("easy")) {
         if(placeHolder == 0) {
@@ -43,7 +63,7 @@ public class guessGame {
       if(difficulty.equals("Hard") || difficulty.equals("hard")) {
         if(placeHolder == 0) {
           lives = 2;
-          System.out.println("Your goal is to guess a number between 1-20 with 2 lives. Hints will be given.");
+          System.out.println("Your goal is to guess a number between 1-20 with 2 lives. A hint will be given.");
           placeHolder = 1;
         }
       }
@@ -64,6 +84,7 @@ public class guessGame {
             if((yesno.equals("yes"))) {
               lives = 1; //it is important to assign these variables to a certain integer so the program is able to run in a loop until the user stops it
               loop = 0;
+              loop2 = 0;
               placeHolder = 0;
             }
           } else {
@@ -84,6 +105,7 @@ public class guessGame {
               if((yesno.equals("yes"))) {
                 lives = 1;
                 loop = 0;
+                loop2 =0;
                 placeHolder = 0;
               }
             } else {
@@ -105,6 +127,7 @@ public class guessGame {
                 if((yesno.equals("yes"))) {
                   lives = 1;
                   loop = 0;
+                  loop2 = 0;
                   placeHolder = 0;
                 }
               }
