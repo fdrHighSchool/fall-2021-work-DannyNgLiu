@@ -19,15 +19,14 @@ public class guessGame {
         System.out.println("Choose your difficulty: type Easy, Medium, or Hard."); //chooses the mode, later on compared with .equals
         difficulty = ask.nextLine();
 
-        System.out.println("difficulty " + difficulty + " has been chosen.");
-
+        //if the user types something other than the three difficulties, the user will be promt "not a difficulty, try again."
         for(int i = 0; i<kws.length; i++) {
           if(difficulty.contentEquals(kws[i])) {
             loop2 = 1;
           }
         }
       while(loop2 == 0) {
-          System.out.println("not a difficulty, try again");
+          System.out.println(difficulty + " is not a difficulty, try again");
           Scanner askAgain = new Scanner(System.in);
           difficulty2 = askAgain.nextLine();
           for(int i = 0; i<kws.length; i++) {
@@ -43,6 +42,7 @@ public class guessGame {
         // System.out.println(difficulty.contentEquals("easy"));
         // System.out.println(kws.length);
       }
+      //compares the difficulty to the strings containing the difficulty, this will set the number of lives and print a different statement for each if statement
       if(difficulty.equals("Easy") || difficulty.equals("easy")) {
         if(placeHolder == 0) {
           lives = 8;
@@ -67,6 +67,7 @@ public class guessGame {
         System.out.println("You may guess a number now: ");
         Scanner number = new Scanner(System.in);
         int theirGuess = number.nextInt();
+        //if the number of lives is 1, lives will become life
         if(theirGuess > ranNum) {
           lives -= 1;
           if(lives == 1) {

@@ -1,5 +1,4 @@
-
-
+//variables containg the x-values of the rectangles
 float xpos1;
 float xpos2;
 float xpos3;
@@ -32,6 +31,7 @@ float xpos14q;
 
 void setup() {
 size(400,400);
+//set the x-values to a specific place on the screen
 xpos1 = (290/2)-90;
 xpos2 = (290/2)-70;
 xpos3 = (290/2)-50;
@@ -62,6 +62,7 @@ xpos12q = (290/2)+130;
 xpos13q = (290/2)+150;
 xpos14q = (290/2)+170;
 }
+
 int mx = 50;
 float xposmx = mx/16;
 float xposmx2 = mx/16;
@@ -93,7 +94,7 @@ float xposmx12q = mx/16;
 float xposmx13q = mx/16;
 float xposmx14q = mx/16;
 void draw() {
-
+//making the background black and changes the color of the rectangles.
 background(0);
 fill(180);
 rect(25, 25, 350, 350, 28);
@@ -159,6 +160,7 @@ fill(0, 252, 210); //cyan
 rect(xpos14q,55,15,260);
 
 System.out.println(xposmx);
+//changes the x-values moving the rectangles to the left or right
 xpos1 += xposmx;
 xpos2 += xposmx2;
 xpos3 += xposmx3;
@@ -188,6 +190,7 @@ xpos11q -= xposmx11q;
 xpos12q -= xposmx12q;
 xpos13q -= xposmx13q;
 xpos14q -= xposmx14q;
+//if the rectangles are close to the edge of the screen, it bounces.
 if(xpos1 < 55) { xposmx = xposmx * -1; }
 if(xpos1 >  330) { xposmx = xposmx * -1;}
 if(xpos2 < 55)  { xposmx2 = xposmx2 * -1; }

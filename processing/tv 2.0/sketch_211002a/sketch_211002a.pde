@@ -7,6 +7,8 @@ size(400,400);
 void draw() {
 int min = 1;
 int max = 400;
+//gets a random number which is then used in a if statement, if it less than,
+//all of the rectangles will flash black
 int randomNumber = ThreadLocalRandom.current().nextInt(min, max + 1);
 System.out.println(randomNumber);
 background(0);
@@ -14,6 +16,7 @@ fill(180);
 rect(25, 25, 350, 350, 28);
 fill(0);
 rect(55, 55, 290, 260);
+//if statements to turn the rectangles black, it also creates the rectangles and assigns the color
 if (randomNumber < 30) {
 fill(255 * randomNumber/400,255 * randomNumber/400,255 * randomNumber/400,255 * randomNumber/400); //white
 }
