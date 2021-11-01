@@ -11,13 +11,16 @@ public class coordinateplane {
   int y1 = yVal(point1);
   int y2 = yVal(point2);
   System.out.println(x1);
+  System.out.println(y1);
+  System.out.println(x2);
+  System.out.println(y2);
 }
-    public static void xVal(String xPoint) {
+    public static int xVal(String xPoint) {
     int indexOfComma = xPoint.indexOf(",");
     int x = Integer.parseInt(xPoint.substring(1, indexOfComma));
     return x;
     }
-    public static void yVal(String yPoint) {
+    public static int yVal(String yPoint) {
     int indexOfComma = yPoint.indexOf(",");
     int y = Integer.parseInt(yPoint.substring(indexOfComma+2, yPoint.length()-1));
     return y;
