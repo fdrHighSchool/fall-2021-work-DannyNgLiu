@@ -31,7 +31,7 @@ public class FracCalc {
             String operandOne = input.substring(0, i);
             String mathSign = input.substring(i+1, i+2);
             String operandTwo = input.substring(i+3, input.length());
-
+            System.out.println(operandTwo);
 
 
         // Checkpoint 2: Return the second operand as a string representing each part.
@@ -39,12 +39,20 @@ public class FracCalc {
 
             int underScore = operandTwo.indexOf("_");
             if (underScore != -1) {
-              int whole = operandTwo.substring(0, underScore);
+              int whole = Integer.parseInt(operandTwo.substring(0, underScore));
+              System.out.println(whole);
+            } else {
+              underScore = 0;
+              System.out.println(underScore);
             }
             int fraction = operandTwo.indexOf("/");
-            int numerator = operandTwo.substring(underScore, fraction + 1);
-            in denominator = operandTwo.substring(fraction, operandTwo.length());
-            
+            System.out.println(fraction);
+            int numerator = Integer.parseInt(operandTwo.substring(underScore, fraction));
+            int denominator = Integer.parseInt(operandTwo.substring(fraction + 1, operandTwo.length()));
+            System.out.println(numerator);
+            System.out.println(denominator);
+
+
         // Checkpoint 3: Evaluate the formula and return the result as a fraction.
         //               Example "4/5 * 1_2/4" returns "6/5".
         //               Note: Answer does not need to be reduced, but it must be correct.
