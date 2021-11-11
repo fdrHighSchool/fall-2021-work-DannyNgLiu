@@ -11,7 +11,11 @@ public class FracCalc {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Type your mathematical equation: ");
         String mathE = userInput.nextLine();
-        System.out.println(produceAnswer(mathE));
+        if(mathE.toLowerCase().equals("quit")) {
+            System.exit(0);
+        }
+        produceAnswer(mathE);
+
 
         // Checkpoint 2: Accept user input multiple times.
     }//end main method
@@ -31,26 +35,11 @@ public class FracCalc {
             String operandOne = input.substring(0, i);
             String mathSign = input.substring(i+1, i+2);
             String operandTwo = input.substring(i+3, input.length());
-            System.out.println(operandTwo);
-
+            System.out.println(wholeNumDen(operandOne));
+            System.out.println(wholeNumDen(operandTwo));
 
         // Checkpoint 2: Return the second operand as a string representing each part.
         //               Example "4/5 * 1_2/4" returns "whole:1 numerator:2 denominator:4".
-
-            int underScore = operandTwo.indexOf("_");
-            if (underScore != -1) {
-              int whole = Integer.parseInt(operandTwo.substring(0, underScore));
-              System.out.println(whole);
-            } else {
-              underScore = 0;
-              System.out.println(underScore);
-            }
-            int fraction = operandTwo.indexOf("/");
-            System.out.println(fraction);
-            int numerator = Integer.parseInt(operandTwo.substring(underScore, fraction));
-            int denominator = Integer.parseInt(operandTwo.substring(fraction + 1, operandTwo.length()));
-            System.out.println(numerator);
-            System.out.println(denominator);
 
 
         // Checkpoint 3: Evaluate the formula and return the result as a fraction.
@@ -85,5 +74,46 @@ public class FracCalc {
     public static int leastCommonMultiple(int a, int b){
       return 0;
     }//end leastCommonMultiple
+
+    public static String wholeNumDen(String operand) {
+      int underScore = operand.indexOf("_");
+      int whole = 0;
+      int numerator = 0;
+      int denominator = 0;
+      int fraction = 0;
+      if (operand.contains("/")) {
+      if (underScore != -1) {
+        whole = Integer.parseInt(operand.substring(0, underScore));
+        // System.out.println("this is the whole number: " + whole);
+      } else {
+        underScore = -1;
+      }
+      fraction = operand.indexOf("/");
+      numerator = Integer.parseInt(operand.substring(underScore + 1, fraction));
+      denominator = Integer.parseInt(operand.substring(fraction + 1, operand.length()));
+      System.out.println("the new unmixed numerator is: " + unmixed(operand, whole, numerator, denominator));
+    }
+    else {
+      whole = Integer.parseInt(operand.substring(0, operand.length()));
+      numerator = 0;
+      denominator = 1;
+      System.out.println("this is the whole number: " + whole);
+    }
+    String fullWND = "whole:" + whole + " numerator:" + numerator + " denominator:" + denominator;
+    return fullWND;
+  }
+
+  public static int unmixed(String operand, int who, int num, int den) {
+    int newNum = 0;
+    if(operand.contains("_")) {
+    newNum = (den*who) + num;
+    return newNum;
+    }
+    return num;
+  }
+
+  public static int operation(String infoOperandOne, String infoOPrandTwo) {
+    
+  }
 
 }//end class
