@@ -35,8 +35,7 @@ public class FracCalc {
             String operandOne = input.substring(0, i);
             String mathSign = input.substring(i+1, i+2);
             String operandTwo = input.substring(i+3, input.length());
-            System.out.println(wholeNumDen(operandOne));
-            System.out.println(wholeNumDen(operandTwo));
+            System.out.println(wholeNumDen(operandOne, operandTwo));
 
         // Checkpoint 2: Return the second operand as a string representing each part.
         //               Example "4/5 * 1_2/4" returns "whole:1 numerator:2 denominator:4".
@@ -75,45 +74,77 @@ public class FracCalc {
       return 0;
     }//end leastCommonMultiple
 
-    public static String wholeNumDen(String operand) {
-      int underScore = operand.indexOf("_");
-      int whole = 0;
-      int numerator = 0;
-      int denominator = 0;
-      int fraction = 0;
-      if (operand.contains("/")) {
-      if (underScore != -1) {
-        whole = Integer.parseInt(operand.substring(0, underScore));
+    public static String wholeNumDen(String operandOne, String operandTwo) {
+      int underScoreOne = operandOne.indexOf("_");
+      int wholeOne = 0;
+      int numeratorOne = 0;
+      int denominatorOne = 0;
+      int fractionOne = 0;
+      int unmixedOne = 0;
+      if (operandOne.contains("/")) {
+      if (underScoreOne != -1) {
+        wholeOne = Integer.parseInt(operandOne.substring(0, underScoreOne));
         // System.out.println("this is the whole number: " + whole);
       } else {
-        underScore = -1;
+        underScoreOne = -1;
       }
-      fraction = operand.indexOf("/");
-      numerator = Integer.parseInt(operand.substring(underScore + 1, fraction));
-      denominator = Integer.parseInt(operand.substring(fraction + 1, operand.length()));
-      System.out.println("the new unmixed numerator is: " + unmixed(operand, whole, numerator, denominator));
+      fractionOne = operandOne.indexOf("/");
+      numeratorOne = Integer.parseInt(operandOne.substring(underScoreOne + 1, fractionOne));
+      denominatorOne = Integer.parseInt(operandOne.substring(fractionOne + 1, operandOne.length()));
+
     }
+    //if there is a whole number
     else {
-      whole = Integer.parseInt(operand.substring(0, operand.length()));
-      numerator = 0;
-      denominator = 1;
-      System.out.println("this is the whole number: " + whole);
+      wholeOne = Integer.parseInt(operandOne.substring(0, operandOne.length()));
+      numeratorOne = 0;
+      denominatorOne = 1;
     }
-    String fullWND = "whole:" + whole + " numerator:" + numerator + " denominator:" + denominator;
+
+    int underScoreTwo = operandTwo.indexOf("_");
+    int wholeTwo = 0;
+    int numeratorTwo = 0;
+    int denominatorTwo = 0;
+    int fractionTwo = 0;
+    int unmixedTwo = 0;
+    if (operandTwo.contains("/")) {
+    if (underScoreTwo != -1) {
+      wholeTwo = Integer.parseInt(operandTwo.substring(0, underScoreTwo));
+      // System.out.println("this is the whole number: " + whole);
+    } else {
+      underScoreTwo = -1;
+    }
+    fractionTwo = operandTwo.indexOf("/");
+    numeratorTwo = Integer.parseInt(operandTwo.substring(underScoreTwo + 1, fractionTwo));
+    denominatorTwo = Integer.parseInt(operandTwo.substring(fractionTwo + 1, operandTwo.length()));
+
+  }
+  //if there is a whole number
+  else {
+    wholeTwo = Integer.parseInt(operandTwo.substring(0, operandTwo.length()));
+    numeratorTwo = 0;
+    denominatorTwo = 1;
+  }
+
+    String fullWND = "w:" + wholeOne + " n:" + numeratorOne + " d:" + denominatorOne + "\nw:" + wholeTwo + " n:" + numeratorTwo + " d:" + denominatorTwo;
     return fullWND;
+
   }
 
-  public static int unmixed(String operand, int who, int num, int den) {
-    int newNum = 0;
-    if(operand.contains("_")) {
-    newNum = (den*who) + num;
-    return newNum;
-    }
-    return num;
-  }
 
-  public static int operation(String infoOperandOne, String infoOPrandTwo) {
-    
-  }
+
+
+
+
+
+
+
+
+
+//put this inside the operation() method
+//   if(operand.contains("_")) {
+//   numerator = (whole*denominator) + numerator;
+//   whole = 0;
+// }
+
 
 }//end class
