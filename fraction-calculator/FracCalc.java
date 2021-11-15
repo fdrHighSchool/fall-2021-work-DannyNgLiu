@@ -11,7 +11,7 @@ public class FracCalc {
         Scanner userInput = new Scanner(System.in);
 
         int temp = 0;
-        if(temp == 0) {
+        while(temp == 0) {
           System.out.println("Type your mathematical equation: ");
           String mathE = userInput.nextLine();
           if(mathE.toLowerCase().equals("quit")) {
@@ -235,6 +235,11 @@ public class FracCalc {
 
       int wholeNum = finalNumerator / finalDenominator;
       int mixedFrac = finalNumerator % finalDenominator;
+
+      if (wholeNum != 0) {
+        mixedFrac = Math.abs(mixedFrac);
+
+      }
 
       if (wholeNum == 0) {
       System.out.println(mixedFrac + "/" + finalDenominator);
