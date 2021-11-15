@@ -145,10 +145,12 @@ public class FracCalc {
   wholeTwo = 0;
   }
 
+  if(denominatorOne == 0 || denominatorTwo == 0) {
+    return "ERROR: Cannot divide by zero. /n";
+  }
     //String fullWND = "w:" + wholeOne + " n:" + numeratorOne + " d:" + denominatorOne + "\nw:" + wholeTwo + " n:" + numeratorTwo + " d:" + denominatorTwo;
 
     calculation(mathSign, wholeOne, numeratorOne, denominatorOne, wholeTwo, numeratorTwo, denominatorTwo, operandOne, operandTwo);
-
 
 
     return "";
@@ -194,7 +196,7 @@ public class FracCalc {
       if (wholeNum != 0) {
         mixedFrac = Math.abs(mixedFrac);
       }
-      
+
       if (wholeNum == 0) {
       System.out.println(mixedFrac + "/" + finalDenominator);
     } else if (mixedFrac == 0) {
