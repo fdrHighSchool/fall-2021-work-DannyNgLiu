@@ -17,7 +17,7 @@ public class FracCalc {
           if(mathE.toLowerCase().equals("quit")) {
             System.exit(0);
           } else {
-          produceAnswer(mathE);
+          System.out.println(produceAnswer(mathE));
           }
         }
 
@@ -39,7 +39,6 @@ public class FracCalc {
             String operandOne = input.substring(0, i);
             String mathSign = input.substring(i+1, i+2);
             String operandTwo = input.substring(i+3, input.length());
-            System.out.println(wholeNumDen(operandOne, operandTwo, mathSign));
 
         // Checkpoint 2: Return the second operand as a string representing each part.
         //               Example "4/5 * 1_2/4" returns "whole:1 numerator:2 denominator:4".
@@ -51,7 +50,7 @@ public class FracCalc {
         // Final project: All answers must be reduced.
         //               Example "4/5 * 1_2/4" returns "1_1/5".
 
-        return operandTwo;
+        return wholeNumDen(operandOne, operandTwo, mathSign);
     }//end produceAnswer method
 
     // TODO: Fill in the space below with helper methods
@@ -146,41 +145,40 @@ public class FracCalc {
   }
 
   if(denominatorOne == 0 || denominatorTwo == 0) {
-    return "ERROR: Cannot divide by zero. /n";
+    return "ERROR: Cannot divide by zero.";
   }
     //String fullWND = "w:" + wholeOne + " n:" + numeratorOne + " d:" + denominatorOne + "\nw:" + wholeTwo + " n:" + numeratorTwo + " d:" + denominatorTwo;
 
-    calculation(mathSign, wholeOne, numeratorOne, denominatorOne, wholeTwo, numeratorTwo, denominatorTwo, operandOne, operandTwo);
+    return calculation(mathSign, wholeOne, numeratorOne, denominatorOne, wholeTwo, numeratorTwo, denominatorTwo, operandOne, operandTwo);
 
-
-    return "";
   }
 
-  public static void calculation(String sign, int wholeOne, int numeratorOne, int denominatorOne, int wholeTwo, int numeratorTwo, int denominatorTwo, String operandOne, String operandTwo) {
+  public static String calculation(String sign, int wholeOne, int numeratorOne, int denominatorOne, int wholeTwo, int numeratorTwo, int denominatorTwo, String operandOne, String operandTwo) {
     if(sign.equals("*")) {
       int finalNumerator = numeratorOne*numeratorTwo;
       int finalDenominator = denominatorOne*denominatorTwo;
       if(operandOne.equals("0") || operandTwo.equals("0")) {
-        System.out.println("0");
+        return "0";
       } else {
-      multiply(finalNumerator, finalDenominator);
+      return multiply(finalNumerator, finalDenominator);
       }
     } else if(sign.equals("+")) {
       int finalDenominator = denominatorOne*denominatorTwo;
       int finalNumerator = (numeratorOne*denominatorTwo) + (numeratorTwo*denominatorOne);
-      addition(finalNumerator, finalDenominator);
+      return addition(finalNumerator, finalDenominator);
     } else if(sign.equals("-")) {
       int finalDenominator = denominatorOne*denominatorTwo;
       int finalNumerator = (numeratorOne*denominatorTwo) - (numeratorTwo*denominatorOne);
-      subtraction(finalNumerator, finalDenominator);
+      return subtraction(finalNumerator, finalDenominator);
     } else if(sign.equals("/")) {
       int finalNumerator = numeratorOne*denominatorTwo;
       int finalDenominator = denominatorOne*numeratorTwo;
-      division(finalNumerator, finalDenominator);
+      return division(finalNumerator, finalDenominator);
     }
+    return "0";
   }
 
-  public static void multiply(int finalNumerator, int finalDenominator) {
+  public static String multiply(int finalNumerator, int finalDenominator) {
 
     for(int i=finalDenominator; i>1; i--) {
       if(((finalNumerator % i) == 0) && ((finalDenominator % i) == 0)) {
@@ -198,15 +196,15 @@ public class FracCalc {
       }
 
       if (wholeNum == 0) {
-      System.out.println(mixedFrac + "/" + finalDenominator);
+      return mixedFrac + "/" + finalDenominator;
     } else if (mixedFrac == 0) {
-      System.out.println(wholeNum);
+      return Integer.toString(wholeNum);
     } else {
-    System.out.println(wholeNum + "_" + mixedFrac + "/" + finalDenominator);
+    return wholeNum + "_" + mixedFrac + "/" + finalDenominator;
     }
   }
 
-  public static void addition(int finalNumerator, int finalDenominator) {
+  public static String addition(int finalNumerator, int finalDenominator) {
 
     for(int i=finalDenominator; i>1; i--) {
       if(((finalNumerator % i) == 0) && ((finalDenominator % i) == 0)) {
@@ -220,15 +218,15 @@ public class FracCalc {
       int mixedFrac = finalNumerator % finalDenominator;
 
       if (wholeNum == 0) {
-      System.out.println(mixedFrac + "/" + finalDenominator);
+      return mixedFrac + "/" + finalDenominator;
     } else if (mixedFrac == 0) {
-      System.out.println(wholeNum);
+      return Integer.toString(wholeNum);
     } else {
-    System.out.println(wholeNum + "_" + mixedFrac + "/" + finalDenominator);
+    return wholeNum + "_" + mixedFrac + "/" + finalDenominator;
     }
   }
 
-  public static void subtraction(int finalNumerator, int finalDenominator) {
+  public static String subtraction(int finalNumerator, int finalDenominator) {
 
     for(int i=finalDenominator; i>1; i--) {
       if(((finalNumerator % i) == 0) && ((finalDenominator % i) == 0)) {
@@ -236,35 +234,6 @@ public class FracCalc {
         finalDenominator = finalDenominator / i;
         i = -1;
 
-        }
-      }
-
-      int wholeNum = finalNumerator / finalDenominator;
-      int mixedFrac = finalNumerator % finalDenominator;
-
-      if (wholeNum != 0) {
-        mixedFrac = Math.abs(mixedFrac);
-      }
-
-      if (wholeNum == 0) {
-      System.out.println(mixedFrac + "/" + finalDenominator);
-    } else if (mixedFrac == 0) {
-
-
-      System.out.println(wholeNum);
-    } else {
-
-    System.out.println(wholeNum + "_" + mixedFrac + "/" + finalDenominator);
-    }
-  }
-
-  public static void division(int finalNumerator, int finalDenominator) {
-
-    for(int i=finalDenominator; i>1; i--) {
-      if(((finalNumerator % i) == 0) && ((finalDenominator % i) == 0)) {
-        finalNumerator = finalNumerator / i;
-        finalDenominator = finalDenominator / i;
-        i = -1;
         }
       }
 
@@ -276,11 +245,37 @@ public class FracCalc {
       }
 
       if (wholeNum == 0) {
-      System.out.println(mixedFrac + "/" + finalDenominator);
+      return mixedFrac + "/" + finalDenominator;
     } else if (mixedFrac == 0) {
-      System.out.println(wholeNum);
+      return Integer.toString(wholeNum);
     } else {
-    System.out.println(wholeNum + "_" + mixedFrac + "/" + finalDenominator);
+    return wholeNum + "_" + mixedFrac + "/" + finalDenominator;
+    }
+  }
+
+  public static String division(int finalNumerator, int finalDenominator) {
+
+    for(int i=finalDenominator; i>1; i--) {
+      if(((finalNumerator % i) == 0) && ((finalDenominator % i) == 0)) {
+        finalNumerator = finalNumerator / i;
+        finalDenominator = finalDenominator / i;
+        i = -1;
+        }
+      }
+
+      int wholeNum = finalNumerator / finalDenominator;
+      int mixedFrac = finalNumerator % finalDenominator;
+
+      if (wholeNum != 0) {
+        mixedFrac = Math.abs(mixedFrac);
+      }
+
+      if (wholeNum == 0) {
+      return mixedFrac + "/" + finalDenominator;
+    } else if (mixedFrac == 0) {
+      return Integer.toString(wholeNum);
+    } else {
+    return wholeNum + "_" + mixedFrac + "/" + finalDenominator;
     }
   }
 
