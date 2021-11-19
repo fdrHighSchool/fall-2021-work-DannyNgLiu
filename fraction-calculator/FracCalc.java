@@ -1,12 +1,7 @@
 import java.util.*;
 public class FracCalc {
-    /**
-     * Prompts user for input, passes that input to produceAnswer, then outputs the result.
-     * @param args - unused
-     */
+
     public static void main(String[] args){
-        // TODO: Read the input from the user and call produceAnswer with an equation
-        // Checkpoint 1: Create a Scanner, read one line of input, pass that input to produceAnswer, print the result.
 
         Scanner userInput = new Scanner(System.in);
 
@@ -36,7 +31,6 @@ public class FracCalc {
     }//end produceAnswer method
 
 
-
     public static String wholeNumDen(String operandOne, String operandTwo, String mathSign) {
       int underScoreOne = operandOne.indexOf("_");
       int wholeOne = 0;
@@ -47,12 +41,13 @@ public class FracCalc {
 
       //first the condition that is ran is if operandOne contains "/", if this is false, it would just be a whole number
 
-      //the second condition that is ran is if the index of the underscore is not equal to -1, if there is no underscore
-      //
+      //the second condition that is ran is if the index of the underScore is not equal to -1, there is a whole number
+      //with a fraction. If underScore is equal to -1, it indicates that operand is just a fraction.
+      //We would use the locations of the / and underScore to determine if there is a whole, numerator and a denominator.
+
       if (operandOne.contains("/")) {
       if (underScoreOne != -1) {
         wholeOne = Integer.parseInt(operandOne.substring(0, underScoreOne));
-        // System.out.println("this is the whole number: " + whole);
       } else {
         underScoreOne = -1;
       }
@@ -61,11 +56,16 @@ public class FracCalc {
       denominatorOne = Integer.parseInt(operandOne.substring(fractionOne + 1, operandOne.length()));
 
     }
-    //if there is a whole number
+
+    //if there is a whole number, we would set the numerator to the whole number, denominator to one and whole
+    //to zero so it is improper.
+
     else {
       numeratorOne = Integer.parseInt(operandOne.substring(0, operandOne.length()));
       denominatorOne = 1;
     }
+
+    //just a repeat to get the whole, numerator and denominator for the second operand.
 
     int underScoreTwo = operandTwo.indexOf("_");
     int wholeTwo = 0;
@@ -76,7 +76,6 @@ public class FracCalc {
     if (operandTwo.contains("/")) {
     if (underScoreTwo != -1) {
       wholeTwo = Integer.parseInt(operandTwo.substring(0, underScoreTwo));
-      // System.out.println("this is the whole number: " + whole);
     } else {
       underScoreTwo = -1;
     }
@@ -90,6 +89,8 @@ public class FracCalc {
     numeratorTwo = Integer.parseInt(operandTwo.substring(0, operandTwo.length()));
     denominatorTwo = 1;
   }
+
+  //if there is a whole which a fraction, it will make it a improper fraction using the condition if(operand.contains("_"));
 
   if(operandOne.contains("_")) {
     if(operandOne.substring(0,1).equals("-")) {
