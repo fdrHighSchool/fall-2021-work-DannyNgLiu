@@ -126,25 +126,25 @@ public class FracCalc {
       if(operandOne.equals("0") || operandTwo.equals("0")) {
         return "0";
       } else {
-      return multiply(finalNumerator, finalDenominator);
+      return operation(finalNumerator, finalDenominator);
       }
     } else if(sign.equals("+")) {
       int finalDenominator = denominatorOne*denominatorTwo;
       int finalNumerator = (numeratorOne*denominatorTwo) + (numeratorTwo*denominatorOne);
-      return addition(finalNumerator, finalDenominator);
+      return operation(finalNumerator, finalDenominator);
     } else if(sign.equals("-")) {
       int finalDenominator = denominatorOne*denominatorTwo;
       int finalNumerator = (numeratorOne*denominatorTwo) - (numeratorTwo*denominatorOne);
-      return subtraction(finalNumerator, finalDenominator);
+      return operation(finalNumerator, finalDenominator);
     } else if(sign.equals("/")) {
       int finalNumerator = numeratorOne*denominatorTwo;
       int finalDenominator = denominatorOne*numeratorTwo;
-      return division(finalNumerator, finalDenominator);
+      return operation(finalNumerator, finalDenominator);
     }
     return "0";
   }
 
-  public static String multiply(int finalNumerator, int finalDenominator) {
+  public static String operation(int finalNumerator, int finalDenominator) {
 
     for(int i=finalDenominator; i>1; i--) {
       if(((finalNumerator % i) == 0) && ((finalDenominator % i) == 0)) {
@@ -160,82 +160,9 @@ public class FracCalc {
       if (wholeNum != 0) {
         mixedFrac = Math.abs(mixedFrac);
       }
-
-      if (wholeNum == 0) {
-      return mixedFrac + "/" + finalDenominator;
-    } else if (mixedFrac == 0) {
-      return Integer.toString(wholeNum);
-    } else {
-    return wholeNum + "_" + mixedFrac + "/" + finalDenominator;
-    }
-  }
-
-  public static String addition(int finalNumerator, int finalDenominator) {
-
-    for(int i=finalDenominator; i>1; i--) {
-      if(((finalNumerator % i) == 0) && ((finalDenominator % i) == 0)) {
-        finalNumerator = finalNumerator / i;
-        finalDenominator = finalDenominator / i;
-        i = -1;
-        }
+      if (finalNumerator == 0) {
+        return "0";
       }
-
-      int wholeNum = finalNumerator / finalDenominator;
-      int mixedFrac = finalNumerator % finalDenominator;
-
-      if (wholeNum == 0) {
-      return mixedFrac + "/" + finalDenominator;
-    } else if (mixedFrac == 0) {
-      return Integer.toString(wholeNum);
-    } else {
-    return wholeNum + "_" + mixedFrac + "/" + finalDenominator;
-    }
-  }
-
-  public static String subtraction(int finalNumerator, int finalDenominator) {
-
-    for(int i=finalDenominator; i>1; i--) {
-      if(((finalNumerator % i) == 0) && ((finalDenominator % i) == 0)) {
-        finalNumerator = finalNumerator / i;
-        finalDenominator = finalDenominator / i;
-        i = -1;
-
-        }
-      }
-
-      int wholeNum = finalNumerator / finalDenominator;
-      int mixedFrac = finalNumerator % finalDenominator;
-
-      if (wholeNum != 0) {
-        mixedFrac = Math.abs(mixedFrac);
-      }
-
-      if (wholeNum == 0) {
-      return mixedFrac + "/" + finalDenominator;
-    } else if (mixedFrac == 0) {
-      return Integer.toString(wholeNum);
-    } else {
-    return wholeNum + "_" + mixedFrac + "/" + finalDenominator;
-    }
-  }
-
-  public static String division(int finalNumerator, int finalDenominator) {
-
-    for(int i=finalDenominator; i>1; i--) {
-      if(((finalNumerator % i) == 0) && ((finalDenominator % i) == 0)) {
-        finalNumerator = finalNumerator / i;
-        finalDenominator = finalDenominator / i;
-        i = -1;
-        }
-      }
-
-      int wholeNum = finalNumerator / finalDenominator;
-      int mixedFrac = finalNumerator % finalDenominator;
-
-      if (wholeNum != 0) {
-        mixedFrac = Math.abs(mixedFrac);
-      }
-
       if (wholeNum == 0) {
       return mixedFrac + "/" + finalDenominator;
     } else if (mixedFrac == 0) {
