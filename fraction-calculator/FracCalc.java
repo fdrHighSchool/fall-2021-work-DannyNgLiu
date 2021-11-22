@@ -211,6 +211,7 @@ public class FracCalc {
       }
 
       if (wholeNum == 0) {
+        if(mixedFrac = 0)
       return mixedFrac + "/" + finalDenominator;
     } else if (mixedFrac == 0) {
       return Integer.toString(wholeNum);
