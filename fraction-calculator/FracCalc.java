@@ -110,7 +110,7 @@ public class FracCalc {
   wholeTwo = 0;
   }
 
-  if(denominatorOne == 0 || denominatorTwo == 0) {
+  if(operandOne.equals("0") || operandTwo.equals("0")) {
     return "ERROR: Cannot divide by zero.";
   }
     //String fullWND = "w:" + wholeOne + " n:" + numeratorOne + " d:" + denominatorOne + "\nw:" + wholeTwo + " n:" + numeratorTwo + " d:" + denominatorTwo;
