@@ -92,6 +92,23 @@ public class FracCalc {
 
   //if there is a whole which a fraction, it will make it a improper fraction using the condition if(operand.contains("_"));
 
+// System.out.println(numeratorOne);
+// System.out.println(numeratorTwo);
+// System.out.println(denominatorOne);
+// System.out.println(denominatorTwo);
+// System.out.println(wholeOne);
+// System.out.println(wholeTwo);
+
+if((operandOne.contains("/") || operandTwo.contains("/"))) {
+    if((denominatorOne == 0) || (denominatorTwo == 0)) {
+      return "ERROR: Cannot divide by zero.";
+    }
+  }
+if(mathSign.equals("/") && numeratorTwo == 0) {
+      return "ERROR: Cannot divide by zero.";
+    }
+
+
   if(operandOne.contains("_")) {
     if(operandOne.substring(0,1).equals("-")) {
       numeratorOne = (denominatorOne*wholeOne) - numeratorOne;
@@ -110,9 +127,7 @@ public class FracCalc {
   wholeTwo = 0;
   }
 
-  if(operandOne.equals("0") || operandTwo.equals("0")) {
-    return "ERROR: Cannot divide by zero.";
-  }
+
     //String fullWND = "w:" + wholeOne + " n:" + numeratorOne + " d:" + denominatorOne + "\nw:" + wholeTwo + " n:" + numeratorTwo + " d:" + denominatorTwo;
 
     return calculation(mathSign, wholeOne, numeratorOne, denominatorOne, wholeTwo, numeratorTwo, denominatorTwo, operandOne, operandTwo);
