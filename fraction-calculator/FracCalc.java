@@ -37,7 +37,7 @@ public class FracCalc {
       int numeratorOne = 0;
       int denominatorOne = 0;
       int fractionOne = 0;
-      int unmixedOne = 0;
+
 
       //first the condition that is ran is if operandOne contains "/", if this is false, it would just be a whole number
 
@@ -72,7 +72,7 @@ public class FracCalc {
     int numeratorTwo = 0;
     int denominatorTwo = 0;
     int fractionTwo = 0;
-    int unmixedTwo = 0;
+
     if (operandTwo.contains("/")) {
     if (underScoreTwo != -1) {
       wholeTwo = Integer.parseInt(operandTwo.substring(0, underScoreTwo));
@@ -90,14 +90,8 @@ public class FracCalc {
     denominatorTwo = 1;
   }
 
-  //if there is a whole which a fraction, it will make it a improper fraction using the condition if(operand.contains("_"));
-
-// System.out.println(numeratorOne);
-// System.out.println(numeratorTwo);
-// System.out.println(denominatorOne);
-// System.out.println(denominatorTwo);
-// System.out.println(wholeOne);
-// System.out.println(wholeTwo);
+  //this tests if any of the operand is undefined by testing if the denominator of both are 0. This also
+  // tests if the numerator is zero when the mathematical sign is division.
 
 if((operandOne.contains("/") || operandTwo.contains("/"))) {
     if((denominatorOne == 0) || (denominatorTwo == 0)) {
@@ -108,6 +102,7 @@ if(mathSign.equals("/") && numeratorTwo == 0) {
       return "ERROR: Cannot divide by zero.";
     }
 
+  //if there is a whole which a fraction, it will make it a improper fraction using the condition if(operand.contains("_"));
 
   if(operandOne.contains("_")) {
     if(operandOne.substring(0,1).equals("-")) {
@@ -135,6 +130,9 @@ if(mathSign.equals("/") && numeratorTwo == 0) {
   }
 
   public static String calculation(String sign, int wholeOne, int numeratorOne, int denominatorOne, int wholeTwo, int numeratorTwo, int denominatorTwo, String operandOne, String operandTwo) {
+
+    //These are the rules needed for each operator when adding, subtracting, multiplying and dividing.
+
     if(sign.equals("*")) {
       int finalNumerator = numeratorOne*numeratorTwo;
       int finalDenominator = denominatorOne*denominatorTwo;
@@ -161,6 +159,10 @@ if(mathSign.equals("/") && numeratorTwo == 0) {
 
   public static String operation(int finalNumerator, int finalDenominator) {
 
+    //This part of the code is used to simplify the numerator and the denominator based on the denominator. The for loop
+    //will start from the denominator and minus one every loop until it reaches 1. If the numerator and denominator mod i
+    //equals zero, that is the gcf. It will then divide the numerator and denominator to get the simplifed version.
+
     for(int i=finalDenominator; i>1; i--) {
       if(((finalNumerator % i) == 0) && ((finalDenominator % i) == 0)) {
         finalNumerator = finalNumerator / i;
@@ -169,15 +171,26 @@ if(mathSign.equals("/") && numeratorTwo == 0) {
         }
       }
 
+      //this is to bring the improper fraction back into a mixed fraction if possible.
+
       int wholeNum = finalNumerator / finalDenominator;
       int mixedFrac = finalNumerator % finalDenominator;
+
+      //This code is to convert the fraction to a positive fraction if there is a whole. I did this because if
+      //ran into a problem when having a subtracting operator. ex. 1 - 2_1/2 The output I would get is -1_-1/2.
 
       if (wholeNum != 0) {
         mixedFrac = Math.abs(mixedFrac);
       }
+
+      //if the numerator is 0, the answer would be 0.
+
       if (finalNumerator == 0) {
         return "0";
       }
+
+      //This is just print statements depending if there is a whole number or not.
+
       if (wholeNum == 0) {
       return mixedFrac + "/" + finalDenominator;
     } else if (mixedFrac == 0) {
