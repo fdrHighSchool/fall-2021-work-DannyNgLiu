@@ -1,7 +1,8 @@
 public class average {
   public static void main(String[] args) {
-    int[] arr = new int[]{10,15,12,12,5};
-    for(int i=0; i<5; i++) {
+    int[] arr = new int[100];
+    for(int i=0; i<100; i++) {
+    arr[i] = (int)(Math.random()*99)+ 1;
     }
     double total = 0;
     for(int i=0; i<arr.length; i++) {
