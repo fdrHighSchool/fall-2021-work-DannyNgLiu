@@ -9,8 +9,9 @@ public class average {
     }
 
   //calls the function
-  System.out.println(avg(arr));
-  System.out.println(mode(arr));
+  System.out.println("this is the average: " + avg(arr));
+  System.out.println("this the mode: " + mode(arr));
+  System.out.println("this is the range: " + range(arr));
 }
 
   //add all the numbers averages it out
@@ -25,7 +26,7 @@ public class average {
     }
 
     //finds the number that is most frequent in the array
-    public static int mode(int[] arr) {
+    public static String mode(int[] arr) {
       int max = 0;
       int[] frequency = new int[100];
       for(int i = 0; i<100; i++) {
@@ -40,17 +41,22 @@ public class average {
           max = frequency[i+1];
         }
       }
+      //System.out.println("largest duplicate is: " + max);
 
       int counter = 1;
-      System.out.println(Arrays.toString(frequency));
+
+      //System.out.println(Arrays.toString(frequency));
+
+      String modeList = "";
       for(int i = 0; i<100; i++) {
         //System.out.print(frequency[i]);
         if(max == frequency[i]) {
           int[] duplicates = new int[counter];
           duplicates[counter-1] = i + 1;
           counter += 1;
-          System.out.println("this is the mode number(s): " + Arrays.toString(duplicates));
-          System.out.println(duplicates.length);
+          modeList = modeList + (i+1) + " ";
+          // System.out.println("this is the mode number(s): " + Arrays.toString(duplicates));
+          // System.out.println(duplicates.length);
         }
       }
 
@@ -62,7 +68,23 @@ public class average {
       //     duplicates[counter] = arr[i];
       //   }
 
-      return 0;
+      return modeList;
+    }
+
+    public static int range(int[] arr) {
+      int max = arr[0];
+      for(int i = 0; i<arr.length-1; i++) {
+        if(max < arr[i+1]) {
+          max = arr[i+1];
+        }
+      }
+      int min = arr[0];
+      for(int i = 0; i<arr.length-1; i++) {
+        if(min > arr[i+1]) {
+          min = arr[i+1];
+        }
+      }
+      return max - min;
     }
   }
 //to do mode, rearrange the list from least to greatest and then compare the numbers until they change.
