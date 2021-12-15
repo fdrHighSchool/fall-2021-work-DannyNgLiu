@@ -12,6 +12,7 @@ public class average {
   System.out.println("this is the average: " + avg(arr));
   System.out.println("this the mode: " + mode(arr));
   System.out.println("this is the range: " + range(arr));
+  System.out.println("this is the median: " + median(arr));
 }
 
   //add all the numbers averages it out
@@ -86,7 +87,30 @@ public class average {
       }
       return max - min;
     }
+
+    public static double median(int[] arr) {
+      int min = 99999;
+      int minLoc = -1;
+      int temp = 0;
+      for(int j = 0; j<arr.length;j++) {
+        for(int i = 0; i<arr.length-1; i++) {
+          if (min > arr[i]) {
+            min = arr[i];
+            minLoc = i;
+            //min = 99999;
+            //i = 0;
+          }
+          temp = arr[j];
+          arr[minLoc] = temp;
+          arr[j] = min;
+        }
+      }
+      System.out.println(Arrays.toString(arr));
+      return 0.0;
+    }
   }
+
+
 //to do mode, rearrange the list from least to greatest and then compare the numbers until they change.
 //once the number changes, get the index previously and then the new index
 
