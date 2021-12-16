@@ -89,20 +89,23 @@ public class average {
     }
 
     public static double median(int[] arr) {
-      int min = 99999;
+      int min = 0;
       int minLoc = -1;
       int temp = 0;
       for(int j = 0; j<arr.length;j++) {
+        min = arr[j];
         for(int i = 0; i<arr.length-1; i++) {
-          if (min > arr[i]) {
-            min = arr[i];
-            minLoc = i;
-            //min = 99999;
-            //i = 0;
+          if (min > arr[i+1]) {
+            min = arr[i+1];
+            System.out.println(min);
+            minLoc = i+1;
+            //System.out.println("this is the location of min: " + minLoc);
+            temp = arr[j];
+            //System.out.println("this is the temp: " + temp);
+            arr[minLoc] = temp;
+            arr[j] = min;
+            //System.out.println("this is the minimum number: " + min + " j value: " + j);
           }
-          temp = arr[j];
-          arr[minLoc] = temp;
-          arr[j] = min;
         }
       }
       System.out.println(Arrays.toString(arr));
