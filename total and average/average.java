@@ -97,7 +97,6 @@ public class average {
         for(int i = 0; i<arr.length-1; i++) {
           if (min > arr[i+1]) {
             min = arr[i+1];
-            System.out.println(min);
             minLoc = i+1;
             //System.out.println("this is the location of min: " + minLoc);
             temp = arr[j];
@@ -105,11 +104,16 @@ public class average {
             arr[minLoc] = temp;
             arr[j] = min;
             //System.out.println("this is the minimum number: " + min + " j value: " + j);
+            }
           }
         }
+        int firstIndex = arr[0];
+        for(int v = 0; v<arr.length-1; v++) {
+          arr[v] = arr[v+1];
       }
-      System.out.println(Arrays.toString(arr));
-      return 0.0;
+      // System.out.println(arr[arr.length/2-1] + arr[arr.length/2]);
+      // System.out.println(Arrays.toString(arr));
+      return (arr[arr.length/2-1] + arr[arr.length/2])/2;
     }
   }
 
