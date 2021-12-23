@@ -3,30 +3,26 @@ import java.util.*;
 public class binaryToDecimal {
   public static void main(String[] args) {
 
-    //user input
+    //takes user input, specifically a binary number and assigns it into a varible
     Scanner s = new Scanner(System.in);
     System.out.println("What binary number do you want to convert into decimal?");
     String userInput = s.nextLine();
-    System.out.println(userInput);
 
-    // for(int i = 0; i<userInput.length();i++) {
-      int index = 0;
+    //uses a for loop to compare numbers from the right to the left. If it is equal to 1, use the power rule
+    //on 2 with index and add it into decimal
+      int index = -1;
       int decimal = 0;
-      for(int i = userInput.length(); i>0; i--) {
+      for(int i = userInput.length(); i>=0; i--) {
         String value = userInput.substring(i-1,i);
-        //System.out.println("power: " + Math.pow(value,2));
-      //  System.out.println(userInput.substring(i-1,i));
         index += 1;
         if(value.equals("1")) {
-          decimal += Math.pow(index, 2);
-          System.out.println(decimal);
+          decimal += Math.pow(2, index);
         }
         if(index == userInput.length()-1) {
           break;
         }
       }
-      // System.out.println(Math.pow(Double.parseDouble(userInput),2));
-    // }
+    System.out.println(decimal);
   }
 }
 
