@@ -3,6 +3,9 @@ import java.util.*;
 public class binaryToDecimal {
   public static void main(String[] args) {
 
+    //loops code
+    int loop = 1;
+    while(loop == 1) {
     //takes user input, specifically a binary number and assigns it into a varible
     Scanner s = new Scanner(System.in);
     System.out.println("What binary number do you want to convert into decimal?");
@@ -23,6 +26,13 @@ public class binaryToDecimal {
         }
       }
     System.out.println(decimal);
+    Scanner iteration = new Scanner(System.in);
+    System.out.println("continue? (yes or no)");
+    String answer = iteration.nextLine();
+    if(answer.toLowerCase().equals("no")) {
+      loop = 0;
+      }
+    }
   }
 }
 
