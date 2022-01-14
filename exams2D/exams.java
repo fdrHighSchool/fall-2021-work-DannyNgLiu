@@ -9,5 +9,6 @@ public class exams {
         }
     }
     System.out.println(Arrays.deepToString(grades));
+    System.out.println(grades[grades.length-1][grades[0].length-1]);
   }
 }
