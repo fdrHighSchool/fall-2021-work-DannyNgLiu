@@ -5,18 +5,19 @@ public class connectFour {
     String[][] board = new String[6][7];
 
     int turn = 1;
+
+    int round = 0;
     //System.out.println(Arrays.deepToString(board));
     fillBoard(board);
     displayBoard(board);
     while(1 == 1) {
     Scanner s = new Scanner(System.in);
-    System.out.println("Whcih column would you like to place your piece?");
     int userColumn = s.nextInt();
-    System.out.println("turn is " + turn);
+
+    round++;
+    turn = round%2;
    placePieces(userColumn, board, turn);
-       System.out.println("this is turn " + turn);
    displayBoard(board);
-       System.out.println("this is turn " + turn);
     }
   } // end main method
 
@@ -39,25 +40,31 @@ public class connectFour {
 
   public static void placePieces(int userColumn, String[][] board, int turn) {
     int temp = 5;
-    System.out.println("this is turn " + turn);
+
     if(turn == 1) {
       while(board[temp][userColumn-1] != "[ ]") {
         temp--;
       }
       board[temp][userColumn-1] = "[X]";
-      turn = 2;
-      System.out.println("turn equals " + turn);
       temp = 5;
       return;
     }
-    if(turn == 2) {
+    if(turn == 0) {
       while(board[temp][userColumn-1] != "[ ]") {
         temp--;
       }
       board[temp][userColumn-1] = "[O]";
-      turn = 1;
       temp = 5;
       return;
     }
   }
 } // end class
+
+
+// it never alternates because you're returning on line 51
+// you only call place pieces once
+// oh nvm
+// so i don't
+// think the turn variable is updated
+// when you pass it to a function
+// try setting the turn variable after you call place pieces
