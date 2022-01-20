@@ -10,7 +10,7 @@ public class connectFour {
     displayBoard(board);
     while(1 == 1) {
     Scanner s = new Scanner(System.in);
-    System.out.println("Whcih column would you like to place your piece?");
+    System.out.println("Which column would you like to place your piece?");
     int userColumn = s.nextInt();
     System.out.println("turn is " + turn);
    placePieces(userColumn, board, turn);
@@ -38,7 +38,9 @@ public class connectFour {
   } // end displayBoard method
 
   public static void placePieces(int userColumn, String[][] board, int turn) {
+    
     int temp = 5;
+
     System.out.println("this is turn " + turn);
     if(turn == 1) {
       while(board[temp][userColumn-1] != "[ ]") {
@@ -48,6 +50,7 @@ public class connectFour {
       turn = 2;
       System.out.println("turn equals " + turn);
       temp = 5;
+      System.out.println("turn equals " + turn);
       return;
     }
     if(turn == 2) {
