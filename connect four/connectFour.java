@@ -6,6 +6,7 @@ public class connectFour {
 
     int turn = 1;
 
+    int row = 0;
     int round = 0;
     //System.out.println(Arrays.deepToString(board));
     fillBoard(board);
@@ -17,7 +18,9 @@ public class connectFour {
 
     round++;
     turn = round%2;
-   placePieces(userColumn, board, turn);
+   row = placePieces(userColumn, board, turn);
+   winCondition(userColumn, row, board, turn);
+   System.out.println(row);
    displayBoard(board);
     }
   } // end main method
@@ -39,28 +42,71 @@ public class connectFour {
     } // end outer for loop
   } // end displayBoard method
 
-  public static void placePieces(int userColumn, String[][] board, int turn) {
+  public static int placePieces(int userColumn, String[][] board, int turn) {
 
+    int row = 0;
     int temp = 5;
 
     if(turn == 1) {
       while(board[temp][userColumn-1] != "[ ]") {
         temp--;
       }
+      row = temp;
       board[temp][userColumn-1] = "[X]";
       temp = 5;
-      return;
+      return row;
     }
     if(turn == 0) {
       while(board[temp][userColumn-1] != "[ ]") {
         temp--;
       }
+      row = temp;
       board[temp][userColumn-1] = "[O]";
       temp = 5;
-      return;
+      return row;
     }
+    return row;
   }
+
+  public static int winCondition(int userColumn, int row, String[][] board, int turn) {
+
+    int counter = 0;
+
+    System.out.println("beginning");
+
+    if(turn == 1) {
+      if(row+2<5) {
+        for(int i = row; i<row+4; i++) {
+          if(board[i][userColumn-1].equals("[X]")) {
+            counter++;
+            System.out.println(counter);
+            if(counter == 4) {
+              System.out.println("win");
+              return 2;
+              }
+            }
+          }
+        }
+      }
+      if(turn == 0) {
+        if(row+2<5) {
+          for(int i = row; i<row+4; i++) {
+            if(board[i][userColumn-1].equals("[O]")) {
+              counter++;
+              if(counter == 4) {
+                System.out.println("win");
+                return 2;
+                }
+              }
+            }
+          }
+        }
+        return 1;
+      }
 } // end class
+
+
+
 
 
 // it never alternates because you're returning on line 51
