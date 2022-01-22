@@ -58,13 +58,22 @@ public class connectFour {
       return;
     }
   }
+
+  public static void horizontal(int userColumn, String[][] board, int turn) {
+    int counter = 0;
+    for(int i = 0; i<7; i++) {
+      if(board[row][i].equals((board[row][i+1]))) {
+        counter++;
+        if(counter == 3) {
+          System.out.println("win");
+          break;
+        } else {
+          counter = 0;
+        }
+      }
+    }
+  }
+
+
+
 } // end class
-
-
-// it never alternates because you're returning on line 51
-// you only call place pieces once
-// oh nvm
-// so i don't
-// think the turn variable is updated
-// when you pass it to a function
-// try setting the turn variable after you call place pieces
