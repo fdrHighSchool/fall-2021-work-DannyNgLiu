@@ -8,10 +8,11 @@ public class connectFour {
 
     int row = 0;
     int round = 0;
+    int loop = 1;
     //System.out.println(Arrays.deepToString(board));
     fillBoard(board);
     displayBoard(board);
-    while(1 == 1) {
+    while(loop == 1) {
     Scanner s = new Scanner(System.in);
     System.out.println("Which column would you like to place your piece?");
     int userColumn = s.nextInt();
@@ -19,7 +20,11 @@ public class connectFour {
     round++;
     turn = round%2;
    row = placePieces(userColumn, board, turn);
-   winCondition(userColumn, row, board, turn);
+   //winCondition(userColumn, row, board, turn);
+   //loop = horizontal(userColumn, row, board, turn);
+   if((0 == horizontal(userColumn, row, board, turn)) || 0 == (vertical(userColumn, row, board, turn))) {
+     loop = 0;
+   }
    System.out.println(row);
    displayBoard(board);
     }
@@ -68,41 +73,89 @@ public class connectFour {
     return row;
   }
 
-  public static int winCondition(int userColumn, int row, String[][] board, int turn) {
+  // public static int winCondition(int userColumn, int row, String[][] board, int turn) {
+  //
+  //   int counter = 0;
+  //
+  //   System.out.println("beginning");
+  //
+  //   if(turn == 1) {
+  //     if(row+2<5) {
+  //       for(int i = row; i<row+4; i++) {
+  //         if(board[i][userColumn-1].equals("[X]")) {
+  //           counter++;
+  //           System.out.println(counter);
+  //           if(counter == 4) {
+  //             System.out.println("win");
+  //             return 2;
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //     if(turn == 0) {
+  //       if(row+2<5) {
+  //         for(int i = row; i<row+4; i++) {
+  //           if(board[i][userColumn-1].equals("[O]")) {
+  //             counter++;
+  //             if(counter == 4) {
+  //               System.out.println("win");
+  //               return 2;
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //       return 1;
+  //     }
 
-    int counter = 0;
-
-    System.out.println("beginning");
-
-    if(turn == 1) {
-      if(row+2<5) {
-        for(int i = row; i<row+4; i++) {
-          if(board[i][userColumn-1].equals("[X]")) {
-            counter++;
-            System.out.println(counter);
-            if(counter == 4) {
-              System.out.println("win");
-              return 2;
-              }
+    public static int horizontal(int userColumn, int row, String[][] board, int turn) {
+      int counter = 0;
+      for(int i = 0; i<6; i++) {
+        if(board[row][i].equals(board[row][i+1])) {
+          counter++;
+          if(counter == 3) {
+            if(turn == 1) {
+              System.out.println("Player 1 won");
+            } else if(turn == 2) {
+              System.out.println("Player 2 won");
             }
+            return 0;
           }
+        } else {
+          counter = 0;
+        }
+      if((board[row][i].equals("[ ]")) && (board[row][i+1].equals("[ ]"))) {
+        counter = 0;
         }
       }
-      if(turn == 0) {
-        if(row+2<5) {
-          for(int i = row; i<row+4; i++) {
-            if(board[i][userColumn-1].equals("[O]")) {
-              counter++;
-              if(counter == 4) {
-                System.out.println("win");
-                return 2;
-                }
-              }
+      return 1;
+    }
+
+    public static int vertical(int userColumn, int row, String[][] board, int turn) {
+      int counter = 0;
+      for(int i = 0; i<5; i++) {
+        if(board[i][userColumn-1].equals(board[i+1][userColumn-1])) {
+          counter++;
+          if(counter == 3) {
+            if(turn == 1) {
+              System.out.println("Player 1 won");
+            } else if(turn == 2) {
+              System.out.println("Player 2 won");
             }
+            return 0;
           }
+        } else {
+          counter = 0;
         }
-        return 1;
+        if((board[i][userColumn-1].equals("[ ]")) && (board[i+1][userColumn-1].equals("[ ]"))) {
+          counter = 0;
+        }
       }
+      return 1;
+    }
+
+
 } // end class
 
 
