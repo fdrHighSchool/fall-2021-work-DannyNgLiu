@@ -19,10 +19,13 @@ public class connectFour {
 
     round++;
     turn = round%2;
+
+    System.out.println("turn is " + turn);
+
    row = placePieces(userColumn, board, turn);
    //winCondition(userColumn, row, board, turn);
    //loop = horizontal(userColumn, row, board, turn);
-   if((0 == horizontal(userColumn, row, board, turn)) || 0 == (vertical(userColumn, row, board, turn))) {
+   if((0 == horizontal(userColumn, row, board, turn)) || 0 == (vertical(userColumn, row, board, turn)) || 0 == (negDiagonal(userColumn, row, board, turn))) {
      loop = 0;
    }
    System.out.println(row);
@@ -117,7 +120,7 @@ public class connectFour {
           if(counter == 3) {
             if(turn == 1) {
               System.out.println("Player 1 won");
-            } else if(turn == 2) {
+            } else if(turn == 0) {
               System.out.println("Player 2 won");
             }
             return 0;
@@ -140,7 +143,7 @@ public class connectFour {
           if(counter == 3) {
             if(turn == 1) {
               System.out.println("Player 1 won");
-            } else if(turn == 2) {
+            } else if(turn == 0) {
               System.out.println("Player 2 won");
             }
             return 0;
@@ -155,6 +158,37 @@ public class connectFour {
       return 1;
     }
 
+  public static int negDiagonal(int userColumn, int row, String[][] board, int turn) {
+    int counter = 0;
+    int index = 0;
+    while((userColumn+index-1<7) &&(row+index<6)) {
+      index++;
+    }
+    int negCol = userColumn+index-1;
+    int negRow = row+index;
+    int i = 0;
+    int counter2 = 0;
+    while((negCol-i>-1) && (negRow-i>-1)) {
+      if(board[negRow-i][negCol-i].equals(board[negRow-i-1][negCol-i-1])) {
+        counter2++;
+        i++;
+        if(counter2 == 3) {
+          if(turn == 1) {
+            System.out.println("Player 1 won");
+          } else if(turn == 0) {
+            System.out.println("Player 2 won");
+          }
+          return 0;
+        }
+      } else {
+        counter2 = 0;
+      }
+      if((board[negRow-i][negCol-i].equals("[ ]")) && (board[negRow-i-1][negCol-i-1].equals("[ ]"))) {
+        counter2 = 0;
+      }
+    }
+    return 1;
+  }
 
 } // end class
 
