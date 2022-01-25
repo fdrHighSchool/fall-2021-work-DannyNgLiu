@@ -161,15 +161,22 @@ public class connectFour {
   public static int negDiagonal(int userColumn, int row, String[][] board, int turn) {
     int counter = 0;
     int index = 0;
-    while((userColumn+index-1<7) &&(row+index<6)) {
+    while((userColumn+index-1<7) && (row+index<6)) {
       index++;
+      System.out.println("index " + index);
     }
     int negCol = userColumn+index-1;
     int negRow = row+index;
     int i = 0;
     int counter2 = 0;
+    System.out.println(negCol-1);
+    System.out.println(negRow-1);
     while((negCol-i>-1) && (negRow-i>-1)) {
-      if(board[negRow-i][negCol-i].equals(board[negRow-i-1][negCol-i-1])) {
+      if(negRow-i-2<0 || negCol-i-2<0) {
+        System.out.println("does it get here");
+        break;
+      }
+      if(board[negRow-i-1][negCol-i-1].equals(board[negRow-i-2][negCol-i-2])) {
         counter2++;
         i++;
         if(counter2 == 3) {
@@ -183,38 +190,17 @@ public class connectFour {
       } else {
         counter2 = 0;
       }
-      if((board[negRow-i][negCol-i].equals("[ ]")) && (board[negRow-i-1][negCol-i-1].equals("[ ]"))) {
+      if((board[negRow-i-1][negCol-i-1].equals("[ ]")) && (board[negRow-i-2][negCol-i-2].equals("[ ]"))) {
         counter2 = 0;
       }
     }
     return 1;
   }
-<<<<<<< HEAD
-=======
+
 
 } // end class
->>>>>>> new-branch1
 
-  public static void horizontal(int userColumn, String[][] board, int turn) {
-    int counter = 0;
-    for(int i = 0; i<7; i++) {
-      if(board[row][i].equals((board[row][i+1]))) {
-        counter++;
-        if(counter == 3) {
-          System.out.println("win");
-          break;
-        } else {
-          counter = 0;
-        }
-      }
-    }
-  }
 
-//
-
-<<<<<<< HEAD
-} // end class
-=======
 
 // it never alternates because you're returning on line 51
 // you only call place pieces once
@@ -223,4 +209,3 @@ public class connectFour {
 // think the turn variable is updated
 // when you pass it to a function
 // try setting the turn variable after you call place pieces
->>>>>>> new-branch1
