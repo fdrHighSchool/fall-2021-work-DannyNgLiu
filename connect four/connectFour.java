@@ -20,8 +20,6 @@ public class connectFour {
     round++;
     turn = round%2;
 
-    System.out.println("turn is " + turn);
-
    row = placePieces(userColumn, board, turn);
    //winCondition(userColumn, row, board, turn);
    //loop = horizontal(userColumn, row, board, turn);
@@ -163,22 +161,17 @@ public class connectFour {
     int index = 0;
     while((userColumn+index-1<7) && (row+index<6)) {
       index++;
-      System.out.println("index " + index);
     }
     int negCol = userColumn+index-1;
     int negRow = row+index;
     int i = 0;
     int counter2 = 0;
-    System.out.println(negCol-1);
-    System.out.println(negRow-1);
     while((negCol-i>-1) && (negRow-i>-1)) {
       if(negRow-i-2<0 || negCol-i-2<0) {
-        System.out.println("does it get here");
         break;
       }
       if(board[negRow-i-1][negCol-i-1].equals(board[negRow-i-2][negCol-i-2])) {
         counter2++;
-        i++;
         if(counter2 == 3) {
           if(turn == 1) {
             System.out.println("Player 1 won");
@@ -193,6 +186,7 @@ public class connectFour {
       if((board[negRow-i-1][negCol-i-1].equals("[ ]")) && (board[negRow-i-2][negCol-i-2].equals("[ ]"))) {
         counter2 = 0;
       }
+      i++;
     }
     return 1;
   }
