@@ -23,7 +23,7 @@ public class connectFour {
    row = placePieces(userColumn, board, turn);
    //winCondition(userColumn, row, board, turn);
    //loop = horizontal(userColumn, row, board, turn);
-   if((0 == horizontal(userColumn, row, board, turn)) || 0 == (vertical(userColumn, row, board, turn)) || 0 == (negDiagonal(userColumn, row, board, turn))) {
+   if((0 == horizontal(userColumn, row, board, turn)) || 0 == (vertical(userColumn, row, board, turn)) || 0 == (negDiagonal(userColumn, row, board, turn)) || 0 == (posDiagonal(userColumn, row, board, turn))) {
      loop = 0;
    }
    System.out.println(row);
@@ -191,6 +191,40 @@ public class connectFour {
     return 1;
   }
 
+  public static int posDiagonal(int userColumn, int row, String[][] board, int turn) {
+    int counter = 0;
+    int index = 0;
+    while((userColumn-index-1>-1) && (row+index<6)) {
+      index++;
+    }
+    int posCol = userColumn-index-1;
+    int posRow = row+index;
+    int i = 0;
+    int counter2 = 0;
+    while((posCol+i<7) && (posRow-i>-1)) {
+      if((posRow-i-2<0) ||  (posCol+i+2)>6) {
+        break;
+      }
+      if(board[posRow-i-1][posCol+i+1].equals(board[posRow-i-2][posCol+i+2])) {
+        counter2++;
+        if(counter2 == 3) {
+          if(turn == 1) {
+            System.out.println("player 1 won");
+          } else if(turn == 0) {
+            System.out.println("player 2 won");
+          }
+          return 0;
+        }
+      } else {
+        counter2 = 0;
+      }
+      if((board[posRow-i-1][posCol+i+1].equals("[ ]")) && (board[posRow-i-2][posCol+i+2].equals("[ ]"))) {
+        counter2 = 0;
+      }
+      i++;
+    }
+    return 1;
+  }
 
 } // end class
 
