@@ -74,42 +74,6 @@ public class connectFour {
     return row;
   }
 
-  // public static int winCondition(int userColumn, int row, String[][] board, int turn) {
-  //
-  //   int counter = 0;
-  //
-  //   System.out.println("beginning");
-  //
-  //   if(turn == 1) {
-  //     if(row+2<5) {
-  //       for(int i = row; i<row+4; i++) {
-  //         if(board[i][userColumn-1].equals("[X]")) {
-  //           counter++;
-  //           System.out.println(counter);
-  //           if(counter == 4) {
-  //             System.out.println("win");
-  //             return 2;
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //     if(turn == 0) {
-  //       if(row+2<5) {
-  //         for(int i = row; i<row+4; i++) {
-  //           if(board[i][userColumn-1].equals("[O]")) {
-  //             counter++;
-  //             if(counter == 4) {
-  //               System.out.println("win");
-  //               return 2;
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //       return 1;
-  //     }
-
     public static int horizontal(int userColumn, int row, String[][] board, int turn) {
       int counter = 0;
       for(int i = 0; i<6; i++) {
@@ -227,13 +191,3 @@ public class connectFour {
   }
 
 } // end class
-
-
-
-// it never alternates because you're returning on line 51
-// you only call place pieces once
-// oh nvm
-// so i don't
-// think the turn variable is updated
-// when you pass it to a function
-// try setting the turn variable after you call place pieces
